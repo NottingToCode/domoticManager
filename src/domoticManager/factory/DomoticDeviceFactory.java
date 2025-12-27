@@ -9,6 +9,7 @@ import domoticManager.devices.Radiator;
 import domoticManager.sensors.AbstractSensor;
 import domoticManager.sensors.HeatSensor;
 import domoticManager.sensors.MotionSensor;
+import strategy.EcoModeStrategy;
 import strategy.StandardRangeStrategy;
 
 public class DomoticDeviceFactory implements AbstractDeviceFactory {
@@ -19,9 +20,14 @@ public class DomoticDeviceFactory implements AbstractDeviceFactory {
         return new HeatSensor(name);
     }
     
+	@Override
+	public Regulator createLight(String name) {
+		return new Light(name, new StandardRangeStrategy(0, 100));
+	}
+    
     @Override
-    public Regulator createLight(String name) {
-        return new Light(name, new StandardRangeStrategy(0, 100));
+    public Regulator createFan(String name) {
+        return new Fan(name,  new StandardRangeStrategy(0, 3));
     }
     
     @Override
@@ -29,10 +35,6 @@ public class DomoticDeviceFactory implements AbstractDeviceFactory {
         return new Radiator(name, new StandardRangeStrategy(0, 100));
     }
     
-    @Override
-    public Regulator createFan(String name) {
-        return new Fan(name,  new StandardRangeStrategy(0, 3));
-    }
 
     @Override
     public AbstractSensor<Boolean> createMotionSensor(String name) {
@@ -43,4 +45,10 @@ public class DomoticDeviceFactory implements AbstractDeviceFactory {
     public DomoticDevice createGroup(String name) {
         return new DomoticGroup(name);
     }
+
+
+
+
+
+	
 }
