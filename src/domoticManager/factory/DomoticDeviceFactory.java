@@ -13,14 +13,15 @@ import strategy.StandardRangeStrategy;
 
 public class DomoticDeviceFactory implements AbstractDeviceFactory {
 
-    @Override
-    public Regulator createLight(String name) {
-        return new Light(name);
-    }
 
     @Override
     public AbstractSensor<Double> createHeatSensor(String name) {
         return new HeatSensor(name);
+    }
+    
+    @Override
+    public Regulator createLight(String name) {
+        return new Light(name, new StandardRangeStrategy(0, 100));
     }
     
     @Override
@@ -30,7 +31,7 @@ public class DomoticDeviceFactory implements AbstractDeviceFactory {
     
     @Override
     public Regulator createFan(String name) {
-        return new Fan(name,  new StandardRangeStrategy(0, 10));
+        return new Fan(name,  new StandardRangeStrategy(0, 3));
     }
 
     @Override

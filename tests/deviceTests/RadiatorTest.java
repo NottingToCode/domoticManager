@@ -7,43 +7,32 @@ import org.junit.Test;
 
 import domoticManager.devices.Radiator;
 import domoticManager.factory.DomoticDeviceFactory;
-import strategy.RangeStrategy;
-import strategy.StandardRangeStrategy;
-
 
 public class RadiatorTest {
-	
-	private DomoticDeviceFactory factory;
-	private Radiator radiator;
-	private RangeStrategy strategy;
-	
+    
+    private DomoticDeviceFactory factory;
+    private Radiator radiator;
+    
+    @Before
+    public void setup(){
+        factory = new DomoticDeviceFactory();
+        radiator = (Radiator)factory.createRadiator("radiatore1");
+    }
 
-	@Before
-	public void setup(){
-		factory = new DomoticDeviceFactory();
-		radiator = (Radiator)factory.createRadiator("radiatore1");
-		strategy = new StandardRangeStrategy(0, 100);
-	}
-
-	@Test
-	public void testRadiatorName() {
-		assertEquals("radiatore1", radiator.getName());
-	}
-	
+    @Test
+    public void testRadiatorName() {
+        assertEquals("radiatore1", radiator.getName());
+    }
+    
     @Test
     public void testIsOffInitially() { 
         assertFalse(radiator.isOn());
     }
     
-	@Test
-	public void testMaxValue() {
-		assertEquals(radiator.getMaxValue(), strategy.getMax());
-	}
-	
-	@Test
-	public void testMinValue() {
-		assertEquals(0, strategy.getMin());
-	}
+    @Test
+    public void testMaxValue() {
+        assertEquals(100, radiator.getMaxValue());
+    }
     
     @Test
     public void testTurnOn() {
@@ -51,34 +40,32 @@ public class RadiatorTest {
         assertTrue(radiator.isOn());
     }
     
-	@Test
-	public void testTurnOff() {
+    @Test
+    public void testTurnOff() {
         radiator.turnOff();
         assertFalse(radiator.isOn());
-	}
-	
-	@Test
-	public void testGetInitalHeatLevel() {
-		assertEquals(0, radiator.getHeatValue());
-	}
+    }
+    
+    @Test
+    public void testGetInitalHeatLevel() {
+        assertEquals(0, radiator.getHeatValue());
+    }
 
-	@Test
-	public void testSetHeatLevel() {
-		radiator.setHeatValue(80);
-		assertEquals(80, radiator.getHeatValue());
-	}
-	
-	@Test
-	public void testSetHeatLevelIfNegative() {
-		radiator.setHeatValue(-80);
-		assertEquals(0, radiator.getHeatValue());
-	}
-	
-	@Test
-	public void testSetHeatLevelIfOver100() {
-		radiator.setHeatValue(110);
-		assertEquals(100, radiator.getHeatValue());
-	}
-
-
+    @Test
+    public void testSetHeatLevel() {
+        radiator.setHeatValue(80);
+        assertEquals(80, radiator.getHeatValue());
+    }
+    
+    @Test
+    public void testSetHeatLevelIfNegative() {
+        radiator.setHeatValue(-80);
+        assertEquals(0, radiator.getHeatValue());
+    }
+    
+    @Test
+    public void testSetHeatLevelIfOver100() {
+        radiator.setHeatValue(110);
+        assertEquals(100, radiator.getHeatValue());
+    }
 }

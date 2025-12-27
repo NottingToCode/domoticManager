@@ -1,40 +1,72 @@
 package deviceTests;
 
-import domoticManager.AbstractDomoticDevice;
-import domoticManager.Regulator;
-import strategy.RangeStrategy;
+import static org.junit.Assert.*;
 
-public class LightTest extends AbstractDomoticDevice implements Regulator {
+import org.junit.Before;
+import org.junit.Test;
+
+import domoticManager.devices.Light;
+import domoticManager.factory.DomoticDeviceFactory;
+
+public class LightTest {
+	
+    private DomoticDeviceFactory factory;
+    private Light light; 
     
-    private int brightness;
-    private final RangeStrategy strategy;
+	@Before
+	public void setup(){
+		factory = new DomoticDeviceFactory();
+		light = (Light)factory.createLight("light1");
+	}
 
-    public LightTest(String name, RangeStrategy strategy) {
-        super(name);
-        this.strategy = strategy;
-        this.brightness = 0;
-    }
-    
-    @Override
-    public void setValue(int value) {
-        this.brightness = strategy.apply(value);
-    }
-
-    @Override
-    public int getValue() {
-        return brightness;
-    }
-
-    @Override
-    public int getMaxValue() {
-        return strategy.getMax();
-    }
-    
-    public int getBrightness() {
-        return getValue();
+	@Test
+	public void testLightName() {
+		assertEquals("light1", light.getName());
+	}
+	
+    @Test
+    public void testIsOffInitially() { 
+        assertFalse(light.isOn());
     }
     
-    public void setBrightness(int brightness) {
-        setValue(brightness);
+    @Test
+    public void testTurnOn() {
+        light.turnOn();
+        assertTrue(light.isOn());
     }
+    
+	@Test
+	public void testTurnOff() {
+        light.turnOn();
+        light.turnOff();
+        assertFalse(light.isOn());
+	}
+	
+	@Test
+	public void testInitialBrightness() {
+		assertEquals(0, light.getBrightness());
+	}
+
+	@Test
+	public void testSetBrightness() {
+		light.setBrightness(50);
+		assertEquals(50, light.getBrightness());
+	}
+	
+	@Test
+	public void testMaxValue() {
+		assertEquals(100, light.getMaxValue());
+	}
+	
+	@Test
+	public void testSetBrightnessIfNegative() {
+		light.setBrightness(-10);
+		assertEquals(0, light.getBrightness());
+	}
+	
+	@Test
+	public void testSetBrightnessIfOver100() {
+		light.setBrightness(150);
+		assertEquals(100, light.getBrightness());
+	}
 }

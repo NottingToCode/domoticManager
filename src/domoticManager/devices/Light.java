@@ -1,23 +1,23 @@
 package domoticManager.devices;
 
-import java.util.function.IntUnaryOperator;
-
 import domoticManager.AbstractDomoticDevice;
 import domoticManager.Regulator;
+import strategy.RangeStrategy;
 
 public class Light extends AbstractDomoticDevice implements Regulator{
 	
 	private int brightness;
-	private static final IntUnaryOperator clamp = value -> Math.max(0, Math.min(100, value));
-
-	public Light(String name) {
+	private final RangeStrategy strategy;
+	
+	public Light(String name,RangeStrategy strategy) {
 		super(name);
+		this.strategy = strategy;
 		this.brightness = 0;
 	}
 	
 	@Override
 	public void setValue(int value) {
-		this.brightness = clamp.applyAsInt(value);
+		this.brightness = strategy.apply(value);
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class Light extends AbstractDomoticDevice implements Regulator{
 
 	@Override
 	public int getMaxValue() {
-		return 100;
+		return strategy.getMax();
 	}
 	
 	public int getBrightness() {

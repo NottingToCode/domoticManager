@@ -15,7 +15,7 @@ public class IndustrialDeviceFactory implements AbstractDeviceFactory {
 
 	@Override
 	public Regulator createLight(String name) {
-		return new Light("INDUSTRIAL-" + name);
+		return new Light("INDUSTRIAL-" + name, new StandardRangeStrategy(0, 300));
 	}
 
 	@Override
