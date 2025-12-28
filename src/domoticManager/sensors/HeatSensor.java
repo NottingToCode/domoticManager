@@ -8,7 +8,7 @@ public class HeatSensor extends AbstractSensor<Double> {
 
 	public HeatSensor(String name) {
 		super(name);
-		this.value = 0.0;
+		setValue(0.0);
 	}
 
 	public double getTemperature() {
@@ -17,7 +17,7 @@ public class HeatSensor extends AbstractSensor<Double> {
 
 	@Override
 	public void updateValue(Double newValue) {
-		this.value = clamp.applyAsDouble(newValue);
+		setValue(clamp.applyAsDouble(newValue));
 		notifyObservers();
 	}
 

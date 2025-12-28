@@ -9,35 +9,34 @@ import domoticManager.observer.IObserver;
 
 public abstract class AbstractSensor<T> extends AbstractDomoticDevice {
 
-	protected T value;
-	// Uso List per chiarezza, inizializzata come ArrayList
-	private final Collection<IObserver> observers = new ArrayList<>();
+    private T value;
+    
+    private final Collection<IObserver> observers = new ArrayList<>();
 
-	public AbstractSensor(String name) {
-		super(name);
-	}
+    public AbstractSensor(String name) {
+        super(name);
+    }
 
-	// Metodo reintrodotto (era mancante)
-	public T getValue() {
-		return value;
-	}
+    public T getValue() {
+        return value;
+    }
 
-	// Metodo reintrodotto (era mancante)
-	public void attach(IObserver observer) {
-		observers.add(observer);
-	}
+    protected void setValue(T value) {
+        this.value = value;
+    }
 
-	// Metodo reintrodotto (era mancante)
-	public void detach(IObserver observer) {
-		observers.remove(observer);
-	}
+    public void attach(IObserver observer) {
+        observers.add(observer);
+    }
 
-	// La versione robusta (corretta)
-	protected void notifyObservers() {
-		// Creiamo una COPIA della lista prima di iterare per sicurezza
-		List<IObserver> safeCopy = new ArrayList<>(this.observers);
-		safeCopy.forEach(IObserver::update);
-	}
+    public void detach(IObserver observer) {
+        observers.remove(observer);
+    }
 
-	public abstract void updateValue(T newValue);
+    protected void notifyObservers() {
+        List<IObserver> safeCopy = new ArrayList<>(this.observers);
+        safeCopy.forEach(IObserver::update);
+    }
+
+    public abstract void updateValue(T newValue);
 }
