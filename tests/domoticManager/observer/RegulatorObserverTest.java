@@ -1,4 +1,4 @@
-package domoticManager.tests;
+package domoticManager.observer;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
