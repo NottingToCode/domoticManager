@@ -1,4 +1,4 @@
-package domoticManager;
+package tests.factory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -6,6 +6,7 @@ import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 
+import domoticManager.DomoticDevice;
 import domoticManager.devices.Regulator;
 import domoticManager.factory.AbstractDeviceFactory;
 import domoticManager.factory.DomoticEcoDeviceFactory;
