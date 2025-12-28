@@ -1,5 +1,8 @@
-package domoticManager;
+package domoticManager.factory;
 
+import domoticManager.DomoticDevice;
+import domoticManager.devices.Regulator;
+import domoticManager.sensors.AbstractSensor;
 
 public interface AbstractDeviceFactory {
 	Regulator createLight(String name);

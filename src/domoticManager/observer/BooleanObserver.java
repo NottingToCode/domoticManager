@@ -1,4 +1,7 @@
-package domoticManager;
+package domoticManager.observer;
+
+import domoticManager.DomoticDevice;
+import domoticManager.sensors.AbstractSensor;
 
 public class BooleanObserver implements IObserver {
 

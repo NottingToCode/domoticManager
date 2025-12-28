@@ -1,4 +1,4 @@
-package domoticManager;
+package domoticManager.strategy;
 
 public interface RangeStrategy {
 	int apply(int value);

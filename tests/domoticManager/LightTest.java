@@ -1,6 +1,5 @@
 package domoticManager;
 
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -8,15 +7,18 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import domoticManager.devices.Light;
+import domoticManager.factory.DomoticDeviceFactory;
+
 public class LightTest {
 
-    private DomoticDeviceFactory factory;
-    private Light light;
+	private DomoticDeviceFactory factory;
+	private Light light;
 
 	@Before
-	public void setup(){
+	public void setup() {
 		factory = new DomoticDeviceFactory();
-		light = (Light)factory.createLight("light1");
+		light = (Light) factory.createLight("light1");
 	}
 
 	@Test
@@ -24,22 +26,22 @@ public class LightTest {
 		assertEquals("light1", light.getName());
 	}
 
-    @Test
-    public void testIsOffInitially() {
-        assertFalse(light.isOn());
-    }
+	@Test
+	public void testIsOffInitially() {
+		assertFalse(light.isOn());
+	}
 
-    @Test
-    public void testTurnOn() {
-        light.turnOn();
-        assertTrue(light.isOn());
-    }
+	@Test
+	public void testTurnOn() {
+		light.turnOn();
+		assertTrue(light.isOn());
+	}
 
 	@Test
 	public void testTurnOff() {
-        light.turnOn();
-        light.turnOff();
-        assertFalse(light.isOn());
+		light.turnOn();
+		light.turnOff();
+		assertFalse(light.isOn());
 	}
 
 	@Test

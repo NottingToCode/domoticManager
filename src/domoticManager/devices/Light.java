@@ -1,4 +1,6 @@
-package domoticManager;
+package domoticManager.devices;
+
+import domoticManager.strategy.RangeStrategy;
 
 public class Light extends AbstractDomoticDevice implements Regulator {
 

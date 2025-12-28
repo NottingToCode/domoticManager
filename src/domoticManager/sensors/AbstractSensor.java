@@ -1,8 +1,11 @@
-package domoticManager;
+package domoticManager.sensors;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import domoticManager.devices.AbstractDomoticDevice;
+import domoticManager.observer.IObserver;
 
 public abstract class AbstractSensor<T> extends AbstractDomoticDevice {
 

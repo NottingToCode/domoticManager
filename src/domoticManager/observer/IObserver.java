@@ -1,4 +1,4 @@
-package domoticManager;
+package domoticManager.observer;
 
 public interface IObserver {
 	void update();

@@ -1,66 +1,70 @@
 package domoticManager;
 
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import domoticManager.devices.Regulator;
+import domoticManager.factory.AbstractDeviceFactory;
+import domoticManager.factory.DomoticEcoDeviceFactory;
+import domoticManager.sensors.AbstractSensor;
+
 public class DomoticEcoDeviceFactoryTest {
 
-    private AbstractDeviceFactory factory;
+	private AbstractDeviceFactory factory;
 
-    @Before
-    public void setup() {
-        factory = new DomoticEcoDeviceFactory();
-    }
+	@Before
+	public void setup() {
+		factory = new DomoticEcoDeviceFactory();
+	}
 
-    @Test
-    public void testCreateLight() {
-        Regulator light = factory.createLight("LuceEco");
-        assertEquals("ECO-LuceEco", light.getName());
+	@Test
+	public void testCreateLight() {
+		Regulator light = factory.createLight("LuceEco");
+		assertEquals("ECO-LuceEco", light.getName());
 
-        light.setValue(100);
-        assertEquals(60, light.getValue());
-    }
+		light.setValue(100);
+		assertEquals(60, light.getValue());
+	}
 
-    @Test
-    public void testCreateRadiator() {
-        Regulator radiator = factory.createRadiator("TermoEco");
-        assertEquals("ECO-TermoEco", radiator.getName());
+	@Test
+	public void testCreateRadiator() {
+		Regulator radiator = factory.createRadiator("TermoEco");
+		assertEquals("ECO-TermoEco", radiator.getName());
 
-        radiator.setValue(100);
-        assertEquals(60, radiator.getValue());
-    }
+		radiator.setValue(100);
+		assertEquals(60, radiator.getValue());
+	}
 
-    @Test
-    public void testCreateFan() {
-        Regulator fan = factory.createFan("VentolaEco");
-        assertEquals("ECO-VentolaEco", fan.getName());
+	@Test
+	public void testCreateFan() {
+		Regulator fan = factory.createFan("VentolaEco");
+		assertEquals("ECO-VentolaEco", fan.getName());
 
-        fan.setValue(3);
-        assertEquals(2, fan.getValue());
-    }
+		fan.setValue(3);
+		assertEquals(2, fan.getValue());
+	}
 
-    @Test
-    public void testCreateHeatSensor() {
-        AbstractSensor<Double> sensor = factory.createHeatSensor("SensoreTemp");
-        assertEquals("ECO-SensoreTemp", sensor.getName());
-        assertEquals(0.0, sensor.getValue(), 0.01);
-    }
+	@Test
+	public void testCreateHeatSensor() {
+		AbstractSensor<Double> sensor = factory.createHeatSensor("SensoreTemp");
+		assertEquals("ECO-SensoreTemp", sensor.getName());
+		assertEquals(0.0, sensor.getValue(), 0.01);
+	}
 
-    @Test
-    public void testCreateMotionSensor() {
-        AbstractSensor<Boolean> sensor = factory.createMotionSensor("SensoreMov");
-        assertEquals("ECO-SensoreMov", sensor.getName());
-        assertFalse(sensor.getValue());
-    }
+	@Test
+	public void testCreateMotionSensor() {
+		AbstractSensor<Boolean> sensor = factory.createMotionSensor("SensoreMov");
+		assertEquals("ECO-SensoreMov", sensor.getName());
+		assertFalse(sensor.getValue());
+	}
 
-    @Test
-    public void testCreateGroup() {
-        DomoticDevice group = factory.createGroup("GruppoEco");
-        assertEquals("ECO-GruppoEco", group.getName());
-        assertFalse(group.isOn());
-    }
+	@Test
+	public void testCreateGroup() {
+		DomoticDevice group = factory.createGroup("GruppoEco");
+		assertEquals("ECO-GruppoEco", group.getName());
+		assertFalse(group.isOn());
+	}
 }

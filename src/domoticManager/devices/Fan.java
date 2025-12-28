@@ -1,4 +1,6 @@
-package domoticManager;
+package domoticManager.devices;
+
+import domoticManager.strategy.RangeStrategy;
 
 public class Fan extends AbstractDomoticDevice implements Regulator {
 

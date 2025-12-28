@@ -1,4 +1,6 @@
-package domoticManager;
+package domoticManager.devices;
+
+import domoticManager.DomoticDevice;
 
 public abstract class AbstractDomoticDevice implements DomoticDevice {
 

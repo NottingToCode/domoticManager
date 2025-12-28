@@ -1,4 +1,7 @@
-package domoticManager;
+package domoticManager.observer;
+
+import domoticManager.devices.Regulator;
+import domoticManager.sensors.AbstractSensor;
 
 public class RegulatorObserver implements IObserver {
 

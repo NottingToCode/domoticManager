@@ -1,4 +1,4 @@
-package domoticManager;
+package domoticManager.sensors;
 
 import java.util.function.DoubleUnaryOperator;
 

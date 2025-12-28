@@ -1,4 +1,4 @@
-package domoticManager;
+package domoticManager.sensors;
 
 public class MotionSensor extends AbstractSensor<Boolean> {
 

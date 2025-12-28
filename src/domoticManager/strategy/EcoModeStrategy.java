@@ -1,4 +1,4 @@
-package domoticManager;
+package domoticManager.strategy;
 
 public class EcoModeStrategy implements RangeStrategy {
 

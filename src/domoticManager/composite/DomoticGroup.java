@@ -1,8 +1,11 @@
-package domoticManager;
+package domoticManager.composite;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.Stream;
+
+import domoticManager.DomoticDevice;
+import domoticManager.devices.AbstractDomoticDevice;
 
 public class DomoticGroup extends AbstractDomoticDevice {
 

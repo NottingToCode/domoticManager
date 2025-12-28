@@ -1,6 +1,5 @@
 package domoticManager;
 
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -8,15 +7,18 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import domoticManager.devices.Fan;
+import domoticManager.factory.DomoticDeviceFactory;
+
 public class FanTest {
 
 	private DomoticDeviceFactory factory;
 	private Fan fan;
 
 	@Before
-	public void setup(){
+	public void setup() {
 		factory = new DomoticDeviceFactory();
-		fan = (Fan)factory.createFan("ventilatore1");
+		fan = (Fan) factory.createFan("ventilatore1");
 	}
 
 	@Test
@@ -24,10 +26,10 @@ public class FanTest {
 		assertEquals("ventilatore1", fan.getName());
 	}
 
-    @Test
-    public void testIsOffInitially() {
-        assertFalse(fan.isOn());
-    }
+	@Test
+	public void testIsOffInitially() {
+		assertFalse(fan.isOn());
+	}
 
 	@Test
 	public void testGetInitalFanSpeed() {

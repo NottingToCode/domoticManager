@@ -1,4 +1,15 @@
-package domoticManager;
+package domoticManager.factory;
+
+import domoticManager.DomoticDevice;
+import domoticManager.composite.DomoticGroup;
+import domoticManager.devices.Fan;
+import domoticManager.devices.Light;
+import domoticManager.devices.Radiator;
+import domoticManager.devices.Regulator;
+import domoticManager.sensors.AbstractSensor;
+import domoticManager.sensors.HeatSensor;
+import domoticManager.sensors.MotionSensor;
+import domoticManager.strategy.EcoModeStrategy;
 
 public class DomoticEcoDeviceFactory implements AbstractDeviceFactory {
 

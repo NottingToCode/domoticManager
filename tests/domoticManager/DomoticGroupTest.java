@@ -1,12 +1,16 @@
 package domoticManager;
 
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import domoticManager.composite.DomoticGroup;
+import domoticManager.devices.Fan;
+import domoticManager.devices.Light;
+import domoticManager.factory.DomoticDeviceFactory;
 
 public class DomoticGroupTest {
 
@@ -18,10 +22,10 @@ public class DomoticGroupTest {
 	@Before
 	public void setup() {
 		factory = new DomoticDeviceFactory();
-		group = (DomoticGroup)factory.createGroup("bed room");
+		group = (DomoticGroup) factory.createGroup("bed room");
 
-		light = (Light)factory.createLight("bed room light");
-		fan = (Fan)factory.createFan("bed room fan");
+		light = (Light) factory.createLight("bed room light");
+		fan = (Fan) factory.createFan("bed room fan");
 	}
 
 	@Test
@@ -34,9 +38,8 @@ public class DomoticGroupTest {
 		assertEquals(0, group.stream().count());
 	}
 
-
 	@Test
-	public void testInitialStateIsOff(){
+	public void testInitialStateIsOff() {
 		assertFalse(group.isOn());
 	}
 
@@ -88,7 +91,7 @@ public class DomoticGroupTest {
 
 	@Test
 	public void testNestedGroups() {
-		DomoticGroup firstFloorGroup = (DomoticGroup)factory.createGroup("first floor");
+		DomoticGroup firstFloorGroup = (DomoticGroup) factory.createGroup("first floor");
 		group.addDevice(light);
 		group.addDevice(fan);
 
@@ -101,23 +104,22 @@ public class DomoticGroupTest {
 	}
 
 	@Test
-    public void testMultipleSameClassDeviceTurnOn() {
-        Light rightLight = (Light)factory.createLight("rightLight");
-        Light leftLight = (Light)factory.createLight("leftLight");
-        Light upLight = (Light)factory.createLight("upLight");
+	public void testMultipleSameClassDeviceTurnOn() {
+		Light rightLight = (Light) factory.createLight("rightLight");
+		Light leftLight = (Light) factory.createLight("leftLight");
+		Light upLight = (Light) factory.createLight("upLight");
 
-        group.addDevice(rightLight);
-        group.addDevice(leftLight);
-        group.addDevice(upLight);
+		group.addDevice(rightLight);
+		group.addDevice(leftLight);
+		group.addDevice(upLight);
 
-        assertEquals(3, group.stream().count());
+		assertEquals(3, group.stream().count());
 
-        group.turnOn();
+		group.turnOn();
 
-        assertTrue(rightLight.isOn());
-        assertTrue(leftLight.isOn());
-        assertTrue(upLight.isOn());
-    }
-
+		assertTrue(rightLight.isOn());
+		assertTrue(leftLight.isOn());
+		assertTrue(upLight.isOn());
+	}
 
 }

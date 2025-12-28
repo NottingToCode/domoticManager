@@ -1,6 +1,5 @@
 package domoticManager;
 
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -8,13 +7,16 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import domoticManager.factory.DomoticDeviceFactory;
+import domoticManager.sensors.MotionSensor;
+
 public class MotionSensorTest {
 
 	private DomoticDeviceFactory factory;
 	private MotionSensor sensor;
 
 	@Before
-	public void setup(){
+	public void setup() {
 		factory = new DomoticDeviceFactory();
 		sensor = (MotionSensor) factory.createMotionSensor("sensore1");
 	}
