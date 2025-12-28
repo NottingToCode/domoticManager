@@ -43,6 +43,4 @@ public class IndustrialDeviceFactory implements AbstractDeviceFactory {
 		return new DomoticGroup("INDUSTRIAL-" + name);
 	}
 
-
-
 }

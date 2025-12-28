@@ -10,32 +10,32 @@ public class EcoModeStrategyTest {
     public void testApplyRespectsEcoLimit() {
         EcoModeStrategy ecoStrategy = new EcoModeStrategy(0, 100, 20);
 
-        int result = ecoStrategy.apply(50);
-
-        assertEquals(20, result);
-        
-        result = ecoStrategy.apply(15);
-        
-        assertEquals(15, result);
+        assertEquals(20, ecoStrategy.apply(50));
     }
 
     @Test
-    public void testAppl() {
+    public void testApplyWorksNormalBelowLimit() {
         EcoModeStrategy ecoStrategy = new EcoModeStrategy(0, 100, 20);
 
-        int result = ecoStrategy.apply(15);
-
-        assertEquals(15, result);
-        
+        assertEquals(15, ecoStrategy.apply(15));
     }
-
+    
     @Test
     public void testGetMaxReturnsPhysicalMax() {
         EcoModeStrategy ecoStrategy = new EcoModeStrategy(0, 100, 20);
+
         assertEquals(100, ecoStrategy.getMax());
     }
     
-    
-    
+    @Test
+    public void testGetMin() {
+        EcoModeStrategy ecoStrategy = new EcoModeStrategy(0, 100, 20);
+        assertEquals(0, ecoStrategy.getMin());
+    }
 
+    @Test
+    public void testGetEcoLimit() {
+        EcoModeStrategy ecoStrategy = new EcoModeStrategy(0, 100, 20);
+        assertEquals(20, ecoStrategy.getEcoLimit());
+    }
 }
