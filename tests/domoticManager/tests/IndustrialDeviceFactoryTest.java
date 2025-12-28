@@ -1,4 +1,4 @@
-package tests.factory;
+package domoticManager.tests;
 
 import static org.junit.Assert.assertEquals;
 

@@ -1,4 +1,4 @@
-package tests.composite;
+package domoticManager.tests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
