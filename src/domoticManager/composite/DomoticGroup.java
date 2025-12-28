@@ -15,7 +15,7 @@ public class DomoticGroup extends AbstractDomoticDevice {
 		super(name);
 		this.children = new LinkedHashSet<>();
 	}
-
+	
 	public void addDevice(DomoticDevice device) {
 		children.add(device);
 	}
@@ -31,7 +31,6 @@ public class DomoticGroup extends AbstractDomoticDevice {
 	@Override
 	public void turnOn() {
 		super.turnOn();
-		// Ora l'ordine di esecuzione è garantito (FIFO)
 		stream().forEach(DomoticDevice::turnOn);
 	}
 

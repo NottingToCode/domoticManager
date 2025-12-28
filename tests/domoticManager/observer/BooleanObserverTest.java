@@ -8,8 +8,6 @@ import org.junit.Test;
 
 import domoticManager.devices.Light;
 import domoticManager.factory.DomoticDeviceFactory;
-import domoticManager.observer.BooleanObserver;
-import domoticManager.observer.IObserver;
 import domoticManager.sensors.MotionSensor;
 
 public class BooleanObserverTest {

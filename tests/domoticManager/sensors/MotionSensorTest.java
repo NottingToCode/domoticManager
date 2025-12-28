@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import domoticManager.factory.DomoticDeviceFactory;
-import domoticManager.sensors.MotionSensor;
 
 public class MotionSensorTest {
 

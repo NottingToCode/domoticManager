@@ -10,7 +10,7 @@ import domoticManager.observer.IObserver;
 public abstract class AbstractSensor<T> extends AbstractDomoticDevice {
 
     private T value;
-    
+
     private final Collection<IObserver> observers = new ArrayList<>();
 
     public AbstractSensor(String name) {

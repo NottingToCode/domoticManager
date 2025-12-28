@@ -11,7 +11,7 @@ public abstract class AbstractDomoticDevice implements DomoticDevice {
 		this.name = name;
 		this.on = false;
 	}
-
+	
 	@Override
 	public String getName() {
 		return name;

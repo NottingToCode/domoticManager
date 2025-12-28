@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import domoticManager.strategy.StandardRangeStrategy;
-
 public class StandardRangeStrategyTest {
 
 	@Test

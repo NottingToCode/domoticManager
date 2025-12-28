@@ -10,8 +10,7 @@ public class RegulatorObserver implements IObserver {
 	private final double threshold;
 	private final boolean activeBelowThreshold;
 
-	public RegulatorObserver(Regulator device, AbstractSensor<Double> sensor, double threshold,
-			boolean activeBelowThreshold) {
+	public RegulatorObserver(Regulator device, AbstractSensor<Double> sensor, double threshold, boolean activeBelowThreshold) {
 		this.device = device;
 		this.sensor = sensor;
 		this.threshold = threshold;

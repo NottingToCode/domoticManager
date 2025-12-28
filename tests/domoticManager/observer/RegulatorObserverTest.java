@@ -10,8 +10,6 @@ import org.junit.Test;
 import domoticManager.devices.Fan;
 import domoticManager.devices.Radiator;
 import domoticManager.factory.DomoticDeviceFactory;
-import domoticManager.observer.IObserver;
-import domoticManager.observer.RegulatorObserver;
 import domoticManager.sensors.HeatSensor;
 
 public class RegulatorObserverTest {

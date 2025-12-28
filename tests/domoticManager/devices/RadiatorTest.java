@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import domoticManager.devices.Radiator;
 import domoticManager.factory.DomoticDeviceFactory;
 
 public class RadiatorTest {

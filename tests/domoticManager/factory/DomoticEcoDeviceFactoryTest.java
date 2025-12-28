@@ -8,8 +8,6 @@ import org.junit.Test;
 
 import domoticManager.DomoticDevice;
 import domoticManager.devices.Regulator;
-import domoticManager.factory.AbstractDeviceFactory;
-import domoticManager.factory.DomoticEcoDeviceFactory;
 import domoticManager.sensors.AbstractSensor;
 
 public class DomoticEcoDeviceFactoryTest {

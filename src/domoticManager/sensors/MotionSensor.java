@@ -4,12 +4,12 @@ public class MotionSensor extends AbstractSensor<Boolean> {
 
     public MotionSensor(String name) {
         super(name);
-        setValue(false); 
+        setValue(false);
     }
 
     @Override
     public void updateValue(Boolean newValue) {
-        setValue(newValue); 
+        setValue(newValue);
         notifyObservers();
     }
 
