@@ -104,9 +104,9 @@ public class DomoticGroupTest {
 
 	@Test
 	public void testMultipleSameClassDeviceTurnOn() {
-		Light rightLight = (Light) factory.createLight("rightLight");
-		Light leftLight = (Light) factory.createLight("leftLight");
-		Light upLight = (Light) factory.createLight("upLight");
+		Light rightLight = (Light) factory.createLight("right light");
+		Light leftLight = (Light) factory.createLight("left light");
+		Light upLight = (Light) factory.createLight("up light");
 
 		group.addDevice(rightLight);
 		group.addDevice(leftLight);

@@ -17,12 +17,12 @@ public class HeatSensorTest {
 	@Before
 	public void setup() {
 		factory = new DomoticDeviceFactory();
-		thermometer = (HeatSensor) factory.createHeatSensor("Termometro1");
+		thermometer = (HeatSensor) factory.createHeatSensor("heat sensor");
 	}
 
 	@Test
 	public void testTermometerName() {
-		assertEquals("Termometro1", thermometer.getName());
+		assertEquals("heat sensor", thermometer.getName());
 	}
 
 	@Test

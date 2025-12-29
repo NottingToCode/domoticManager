@@ -21,8 +21,8 @@ public class DomoticEcoDeviceFactoryTest {
 
 	@Test
 	public void testCreateLight() {
-		Regulator light = factory.createLight("LuceEco");
-		assertEquals("ECO-LuceEco", light.getName());
+		Regulator light = factory.createLight("light");
+		assertEquals("ECO-light", light.getName());
 
 		light.setValue(100);
 		assertEquals(60, light.getValue());
@@ -30,8 +30,8 @@ public class DomoticEcoDeviceFactoryTest {
 
 	@Test
 	public void testCreateRadiator() {
-		Regulator radiator = factory.createRadiator("TermoEco");
-		assertEquals("ECO-TermoEco", radiator.getName());
+		Regulator radiator = factory.createRadiator("radiator");
+		assertEquals("ECO-radiator", radiator.getName());
 
 		radiator.setValue(100);
 		assertEquals(60, radiator.getValue());
@@ -39,8 +39,8 @@ public class DomoticEcoDeviceFactoryTest {
 
 	@Test
 	public void testCreateFan() {
-		Regulator fan = factory.createFan("VentolaEco");
-		assertEquals("ECO-VentolaEco", fan.getName());
+		Regulator fan = factory.createFan("fan");
+		assertEquals("ECO-fan", fan.getName());
 
 		fan.setValue(3);
 		assertEquals(2, fan.getValue());
@@ -48,22 +48,22 @@ public class DomoticEcoDeviceFactoryTest {
 
 	@Test
 	public void testCreateHeatSensor() {
-		AbstractSensor<Double> sensor = factory.createHeatSensor("SensoreTemp");
-		assertEquals("ECO-SensoreTemp", sensor.getName());
+		AbstractSensor<Double> sensor = factory.createHeatSensor("heatSensor");
+		assertEquals("ECO-heatSensor", sensor.getName());
 		assertEquals(0.0, sensor.getValue(), 0.01);
 	}
 
 	@Test
 	public void testCreateMotionSensor() {
-		AbstractSensor<Boolean> sensor = factory.createMotionSensor("SensoreMov");
-		assertEquals("ECO-SensoreMov", sensor.getName());
+		AbstractSensor<Boolean> sensor = factory.createMotionSensor("motionSensor");
+		assertEquals("ECO-motionSensor", sensor.getName());
 		assertFalse(sensor.getValue());
 	}
 
 	@Test
 	public void testCreateGroup() {
-		DomoticDevice group = factory.createGroup("GruppoEco");
-		assertEquals("ECO-GruppoEco", group.getName());
+		DomoticDevice group = factory.createGroup("group");
+		assertEquals("ECO-group", group.getName());
 		assertFalse(group.isOn());
 	}
 }

@@ -22,9 +22,9 @@ public class RegulatorObserverTest {
 	@Before
 	public void setup() {
 		factory = new DomoticDeviceFactory();
-		sensor = (HeatSensor) factory.createHeatSensor("Termostato Centrale");
-		radiator = (Radiator) factory.createRadiator("Termosifone Salotto");
-		fan = (Fan) factory.createFan("Ventilatore Camera");
+		sensor = (HeatSensor) factory.createHeatSensor("heat sensor");
+		radiator = (Radiator) factory.createRadiator("room radiator");
+		fan = (Fan) factory.createFan("room fan");
 	}
 
 	@Test

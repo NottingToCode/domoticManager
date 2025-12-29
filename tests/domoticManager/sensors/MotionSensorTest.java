@@ -17,12 +17,12 @@ public class MotionSensorTest {
 	@Before
 	public void setup() {
 		factory = new DomoticDeviceFactory();
-		sensor = (MotionSensor) factory.createMotionSensor("sensore1");
+		sensor = (MotionSensor) factory.createMotionSensor("motion sensor");
 	}
 
 	@Test
 	public void testNameSensor() {
-		assertEquals("sensore1", sensor.getName());
+		assertEquals("motion sensor", sensor.getName());
 	}
 
 	@Test

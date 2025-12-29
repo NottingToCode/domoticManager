@@ -20,8 +20,8 @@ public class BooleanObserverTest {
 	public void setup() {
 		factory = new DomoticDeviceFactory();
 
-		sensor = (MotionSensor) factory.createMotionSensor("Sensore Ingresso");
-		light = (Light) factory.createLight("Luce Ingresso");
+		sensor = (MotionSensor) factory.createMotionSensor("entry sensor");
+		light = (Light) factory.createLight("entry light");
 	}
 
 	@Test
@@ -61,6 +61,6 @@ public class BooleanObserverTest {
 
 		sensor.updateValue(false);
 
-		assertTrue("Il dispositivo NON dovrebbe reagire dopo il detach", light.isOn());
+		assertTrue(light.isOn());
 	}
 }

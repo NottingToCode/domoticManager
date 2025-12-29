@@ -17,12 +17,12 @@ public class RadiatorTest {
 	@Before
 	public void setup() {
 		factory = new DomoticDeviceFactory();
-		radiator = (Radiator) factory.createRadiator("radiatore1");
+		radiator = (Radiator) factory.createRadiator("radiator1");
 	}
 
 	@Test
 	public void testRadiatorName() {
-		assertEquals("radiatore1", radiator.getName());
+		assertEquals("radiator1", radiator.getName());
 	}
 
 	@Test

@@ -17,12 +17,12 @@ public class FanTest {
 	@Before
 	public void setup() {
 		factory = new DomoticDeviceFactory();
-		fan = (Fan) factory.createFan("ventilatore1");
+		fan = (Fan) factory.createFan("fan1");
 	}
 
 	@Test
 	public void testGetFanName() {
-		assertEquals("ventilatore1", fan.getName());
+		assertEquals("fan1", fan.getName());
 	}
 
 	@Test
